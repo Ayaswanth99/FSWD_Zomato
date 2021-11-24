@@ -1,0 +1,234 @@
+ 
+* { 
+    /* ovverriding default browser spacing  */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} 
+body {
+    font-family: 'Merriweather', serif;
+    background-color: #ebf2ff;
+} 
+ .navbar {
+     position: sticky;
+     top: 0px; 
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     background-color: white;
+     z-index: 9999;
+ }
+ .navbar__brand {
+    width: 100px;
+}
+ .brand__logo {
+    width: 100px;
+ }
+ .navbar__nav__items {
+    display: flex;
+}
+.hero__container {
+     margin: 1rem;   /*last one in header*/
+}
+.hero__image__container {
+   position: relative;
+   width: 100%; 
+}
+
+.hero__image {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    right: auto;
+    left: auto;
+    z-index: 2;
+    border-radius: 10px;
+}
+.hero__image__shape{
+    position: absolute;
+     
+}
+.hero__image__pattern {
+    height: 235px;
+}
+ .hero__description {   /* No tmaking any sense*/ 
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+ }
+
+.hero__text {
+    font-size: 1.8rem;
+    line-height: 2.25rem;  /* distance b/w lines*/
+    font-weight: 900;
+    padding:20px;
+}
+.video__footage__container {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.video__footage {
+    position: relative;
+}
+.video__footage::before {
+    background-image: linear-gradient(
+        to right, #ff512f 0%,#dd2476 51%, #ff512f 100%);
+    content: "";
+    top: 15px;
+    left: 15px;      /* transform: translate(1rem,1rem); */
+    position: absolute; 
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+.video__footage__text {
+    margin-top: 2rem;
+    color: rgb(248, 142, 160);
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-align: center;
+}
+ .button__primary {
+     margin: 10px;
+     padding: 8px 16px;
+     text-align: center;
+     transition: 0.5s;
+     color: white;
+     font-weight: bold;
+     border-radius: 7px;
+     box-shadow: 0 0 10px red;
+    display: block;
+     background-image: linear-gradient(to right, #ff512f 0%,#dd2476 51%, #ff512f 100%);
+}
+.button__primary:hover {
+       /*transition isn't working here, but will wok for width */
+    /* background:  linear-gradient(to left, red 0%,blue 50%,purple 100%); */
+    background-position: right center;
+} 
+.food__list__container {
+    position: relative;
+    margin: 5rem 0;
+}
+.food__menu__card__list {
+    width: 100%;
+}
+.food__menu__card__image {
+    border-radius: 6px 6px 0px 0px;
+    width: 100%;
+}
+.food__menu__card__details {
+    padding: 1rem;
+    text-align: left;
+    color:black ;
+}
+.food__menu__card__title {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    color: darkblue;
+    font-weight: 900;
+}
+.restaurant__list__images__container {
+    margin-top: 3rem;
+}
+.restaurant__list__row1 {
+    display: flex;
+    align-items: baseline;
+}
+.restaurant__list__row2 {
+    margin-top: 1rem;
+    display: flex;  
+    flex-direction: row-reverse;
+    align-items: baseline;
+}
+.restaurant1, .restaurant3 {
+    border-radius: 5px;
+    margin: 0 5px;
+    width: 150px;
+    height: 80px;   
+}
+.restaurant2, .restaurant4 {
+    border-radius: 5px;
+    margin: 0 5px;
+    width: 200px;
+    height: 100px;  
+}
+
+
+@media (min-width: 1200px) {
+    .navbar {
+        padding: 0 3rem;
+    }
+    .button__primary {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+    .hero__container {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+    .hero__image {
+        margin-top: 2rem;    
+    }
+    .hero__text{
+        font-size: 3rem;
+        line-height: 1;
+    } 
+    /* First part otherthan header */
+    .container {
+        padding: 10px 200px;
+    }
+    .video__footage__container {  
+        display: flex;
+        flex-direction: column;     
+    }
+    .video__footage__text {
+        width: 60%; 
+    } 
+      /* Explore menu  */
+    .food__menu__card__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding-top: 2rem;
+    }
+    .food__menu__card {      /* even workling without this*/
+        flex-basis: 30%;  /* its like width 30% ,each item is taking 30% of total flex cause of its fex wrap*/
+        background-color: blanchedalmond;
+        border-radius: 6px;
+    }
+    .food__list__container__diagonal {
+        background-image: linear-gradient(
+            to right,
+             #ff512f 0%,
+             #dd2476 51%,
+             #ff512f 100%);
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        z-index: -1;
+        /* width: 100%; is working but height 100% isn't working */
+        transform: skewY(-5deg);
+        width: 100%;  
+        height: 100%;  /*now both are working cause div isn't wrapped the complete content, so it takes the 
+                        whole contnt present in parent tag food_list-cntaner*/
+    }
+    .restaurant__list__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .restaurant1, .restaurant3 {
+        justify-content: center;
+    }
+    .restaurant2, .restaurant4 {
+        margin-top: 3px;
+        align-items: flex-start;
+        justify-content: center;
+    }
+}
+
